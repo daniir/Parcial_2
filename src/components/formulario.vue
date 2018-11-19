@@ -9,7 +9,12 @@
         <el-input style="width: 200px;height:15px" placeholder="Apellido" type="text" v-model="usuarioApd"></el-input>
         <br>
         <br>
-        <el-input style="width: 200px;height:15px" Placeholder="Ciudad" type="text" v-model="usuarioCi"></el-input>
+        <div>
+        <el-select placeholder="Ciudad" v-model="usuarioCi">
+        <el-option v-for="item in ciudadespty" :key="item.ciudad" :label="item.label" :value="item.value">
+        </el-option>
+        </el-select>
+        </div>
         <br>
         <br>
         <p>Sexo</p>
@@ -52,6 +57,13 @@
         <template slot="header" slot-scope="slot">
         <el-input v-model="buscar" size="mini" placeholder="Buscador" />
         </template>
+        <el-table-column fixed="right" label="Operaciones" width="120">
+        <template slot-scope="scope">
+        <el-button @click.native.prevent="deleteRow(scope.$index, tableData1)" type="danger" size="small"
+        icon="el-icon-delete">
+        </el-button>
+        </template>
+        </el-table-column>
         </el-table-column>
         </el-table>
     </div>
@@ -62,6 +74,7 @@ export default {
   name: "formulario",
   data: function() {
     return {
+      buscar: "",
       usuarioNmb: "",
       usuarioApd: "",
       usuarioCi: "",
@@ -78,6 +91,40 @@ export default {
           fechaNac: "1-01-1111",
           estado: "Activo",
           direccion: "Tumba Muerto"
+        }
+      ],
+      ciudadespty: [
+        {
+          value: "Bocas del Toro",
+          label: "Bocas del Toro"
+        },
+        {
+          value: "Chiriquí",
+          label: "Chiriquí "
+        },
+        {
+          value: "Coclé ",
+          label: "Coclé "
+        },
+        {
+          value: "Colón ",
+          label: "Colón "
+        },
+        {
+          value: "Darién",
+          label: "Darién "
+        },
+        {
+          value: "Herrera",
+          label: "Herrera "
+        },
+        {
+          value: "Los Santos",
+          label: "Los Santos"
+        },
+        {
+          value: "Panamá",
+          label: "Panamá"
         }
       ]
     };
@@ -121,6 +168,12 @@ export default {
       return true;
     }
     return false;
+  },
+  deleteRow(index, rows) {
+    rows.splice(index, 1);
+  },
+  handleEdit(index, row) {
+    console.log(index, row);
   }
 };
 </script>
