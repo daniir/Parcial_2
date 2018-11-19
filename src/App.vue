@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import inicio from './components/formulario.vue'
+import inicio from './components/inicio.vue'
 
 export default {
   name: 'app',
