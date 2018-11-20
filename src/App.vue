@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <h1 align='center'>Bienvenido</h1>
     <inicio/>
   </div>
 </template>
@@ -11,7 +10,7 @@ import inicio from './components/inicio.vue'
 export default {
   name: 'app',
   components: {
-    inicio
+    inicio,
   }
 }
 </script>
