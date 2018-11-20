@@ -1,8 +1,6 @@
 <template>
     <div id='formulario'>
-      <div>
-        <h1>Formulario de usuarios</h1> <el-button type="primary">Cerrar Sesión</el-button>
-      </div>
+        <h1>Formulario de usuarios</h1><el-button @click="cierre" type="primary">Cerrar Sesión</el-button>
         <br>
         <br>
         <el-input style="width: 200px;height:15px" placeholder="Usuario" type="text" v-model="usuarioNmb"></el-input>
@@ -61,7 +59,7 @@
         </template>
         <el-table-column fixed="right" label="Operaciones" width="120">
         <template slot-scope="scope">
-        <el-button @click.native.prevent="deleteRow(scope.$index, tableData1)" type="danger" size="small"
+        <el-button  @click.native.prevent="deleteRow(scope.$index, tableData1)" type="danger" size="small"
         icon="el-icon-delete">
         </el-button>
         </template>
@@ -72,8 +70,13 @@
 </template>
 
 <script>
+import inicio from "./inicio.vue";
+
 export default {
   name: "formulario",
+  components: {
+    inicio
+  },
   data: function() {
     return {
       buscar: "",
@@ -158,9 +161,11 @@ export default {
         this.estado,
         this.direccion
       );
-    }
-  },
-  buscar_usuario: function() {
+    },
+    cierre:function(){
+      location.href="/inicio.vue"
+    },
+    buscar_usuario: function() {
     const index = this.tableData1.findIndex(
       item => item.nombre === this.buscar
     );
@@ -173,10 +178,10 @@ export default {
   },
   deleteRow(index, rows) {
     rows.splice(index, 1);
-  },
-  handleEdit(index, row) {
-    console.log(index, row);
+
+  }
   }
 };
 </script>
+
 
