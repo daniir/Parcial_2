@@ -1,6 +1,7 @@
 <template>
     <div id='inicio'>
         <center v-if="!verificar">
+        <h1>Ingrese sus datos para continuar</h1>  
         <el-input style="width: 200px;height:15px" placeholder="Usuario" type="text" v-model="usuarioSs" id="nombre"></el-input>
         <br>
         <br>
