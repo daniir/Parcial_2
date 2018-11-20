@@ -1,6 +1,8 @@
 <template>
     <div id='formulario'>
-        <h1>Formulario de usuarios</h1>
+      <div>
+        <h1>Formulario de usuarios</h1> <el-button type="primary">Cerrar Sesión</el-button>
+      </div>
         <br>
         <br>
         <el-input style="width: 200px;height:15px" placeholder="Usuario" type="text" v-model="usuarioNmb"></el-input>
